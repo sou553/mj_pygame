@@ -81,9 +81,16 @@ def points(p_tehai, Flags, p_kaze, bakaze, yaku_list):
             elif n == 5:
                 han = len(yaku_list[n]) * 13
                 break
-            elif n == 7:
+            elif n == 6:
                 for m in yaku_list[n]:
-                    han += m
+                    m = m.replace("裏ドラ ", "")
+                    m = m.replace("ドラ ", "")
+                    m = m.replace("翻", "")
+                    print(m)
+                    han += int(m)
+    
+    if han%13 != 0 and han > 13:
+        han = 13
 
     if p_kaze == [0] and TurnFlag == "Ron": # 
         if han == 1:
